@@ -2,7 +2,7 @@ package com.partial_reduction_trees.core
 
 import zio.*
 
-object Parallel {
+object Parallel:
   private object Invariants:
     def requireUpsweep(input: Array[Float], from: Int, until: Int): Unit =
       require(from < until && from >= 0 && from < input.length & until <= input.length, "Incorrect params")
@@ -60,4 +60,4 @@ object Parallel {
       tree <- upsweep(input, 0, input.length, threshold)
       _ <- downsweep(input, output, Float.MinValue, tree)
     } yield ()
-}
+
